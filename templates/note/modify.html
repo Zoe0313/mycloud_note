@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.name }}的笔记</title>
+</head>
+<body>
+    <form action="/note/mod/{{ note.id }}" method="post">
+        {% csrf_token %}
+        <div>
+            标题: <input type="text" name="note_title" value="{{ note.title }}" placeholder="标题" required>
+        </div>
+        <div>
+            内容: <textarea name="note_content" rows="10" cols="50">{{ note.content }}</textarea>
+        </div>
+        <div>
+            <input type="submit" value="修改">
+        </div>
+    </form>
+</body>
+</html>
+
+
